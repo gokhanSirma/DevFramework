@@ -1,0 +1,19 @@
+﻿using DevFramwork.Core.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DevFramework.Northwind.Entities.ConCrete
+{
+    public class Product:IEntity
+    {
+        public int ProductId { get; set; }
+        public string urunAd { get; set; }
+        public int CategoryId { get; set; }
+        public string QuantityPerUnit { get; set; }
+        public decimal urunFiyat { get; set; }
+
+    }
+}
