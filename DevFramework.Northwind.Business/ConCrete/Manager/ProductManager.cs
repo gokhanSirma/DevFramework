@@ -4,7 +4,9 @@ using DevFramework.Northwind.DataAccess.Abstracts;
 using DevFramework.Northwind.Entities.ConCrete;
 using DevFramwork.Core.Aspects.Postsharp;
 using DevFramwork.Core.Aspects.Postsharp.CacheAspects;
+using DevFramwork.Core.Aspects.Postsharp.LogAspects;
 using DevFramwork.Core.CrossCuttingConcerns.Caching.Microsoft;
+using DevFramwork.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using DevFramwork.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -34,6 +36,7 @@ namespace DevFramework.Northwind.Business.ConCrete.Manager
             return _productDal.Add(product);
         }
         [CacheAspect(typeof(MemoryCacheManager),120)]//time default değeri 60 ama istersek buraya ekleyede biliriz
+        [LogAspect(typeof(DatabaseLogger))]
         public List<Product> GetAll()
         {
             return _productDal.GetList();
